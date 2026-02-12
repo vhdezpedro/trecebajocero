@@ -10,6 +10,10 @@ const clientesRoute = require("./routes/clientes");
 const app = express();
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  return res.send("Servidor conectado");
+});
+
 app.use(express.static(path.join(__dirname, "..")));
 
 app.use("/visitas", visitasRoute);
@@ -18,5 +22,5 @@ app.use("/auth", authRoute);
 app.use("/clientes", clientesRoute);
 
 app.listen(3000, "0.0.0.0", () => {
-  console.log("El servidor esta corriendo en http://localhost:3000");
+  console.log("El servidor esta corriendo en el puerto 3000");
 });
