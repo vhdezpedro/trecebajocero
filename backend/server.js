@@ -1,0 +1,22 @@
+const express = require("express");
+const path = require("path");
+require("dotenv").config({ path: __dirname + "/.env" });
+
+const visitasRoute = require("./routes/visitas");
+const progresoRoute = require("./routes/progreso");
+const authRoute = require("./routes/auth");
+const clientesRoute = require("./routes/clientes");
+
+const app = express();
+app.use(express.json());
+
+app.use(express.static(path.join(__dirname, "..")));
+
+app.use("/visitas", visitasRoute);
+app.use("/progreso", progresoRoute);
+app.use("/auth", authRoute);
+app.use("/clientes", clientesRoute);
+
+app.listen(3000, "0.0.0.0", () => {
+  console.log("El servidor esta corriendo en http://localhost:3000");
+});
