@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   return res.send("Servidor conectado");
 });
 
-app.get("test/tablas", async (req, res) => {
+app.get("test-tablas", async (req, res) => {
   const [tablas] = await db.query("SHOW TABLES");
   res.json(tablas);
 });
