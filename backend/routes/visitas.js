@@ -11,12 +11,12 @@ router.post("/", async (req, res) => {
       [cliente_id],
     );
 
-    if (rows[0].total >= 2) {
+    /*     if (rows[0].total >= 2) {
       return res.json({
         success: false,
         mensaje: "⚠️ Límite diario alcanzado. Ya registraste dos visitas hoy.",
       });
-    }
+    } */
 
     await db.query("INSERT INTO visitas (cliente_id) VALUES (?)", [cliente_id]);
     res.json({
