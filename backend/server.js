@@ -41,8 +41,7 @@ app.get("/crear-tablas", async (req, res) => {
       `CREATE TABLE IF NOT EXISTS visitas (
       id int auto_increment primary key,
       cliente_id int not null,
-      fecha_visita date not null,
-      creado_en timestamp default current_timestamp,
+      fecha_visita timestamp default current_timestamp,
       FOREIGN KEY (cliente_id) REFERENCES clientes(id)
       )`,
     );
