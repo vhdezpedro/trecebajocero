@@ -13,10 +13,18 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: "https://trece-bajo-cero.netlify.app" }));
 
-app.get("/", (req, res) => {
-  return res.send("Servidor conectado");
+// Borrar tablas
+app.get("/borrar-tablas", async (req, res) => {
+  try {
+    db.query("DROP TABLE visitas");
+    res.send("Se eliminó la tabla correctamente");
+  } catch (error) {
+    console.log(error);
+    res.send("Problema al eliminar la tabla");
+  }
 });
 
+// Crea las tablas en producción
 app.get("/crear-tablas", async (req, res) => {
   try {
     db.query(

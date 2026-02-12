@@ -5,6 +5,8 @@ const db = require("../db");
 router.post("/", async (req, res) => {
   const { cliente_id } = req.body;
 
+  console.log(cliente_id);
+  
   try {
     const [rows] = await db.query(
       "SELECT COUNT(*) as total FROM visitas WHERE cliente_id = ? AND DATE(fecha_visita) = CURDATE()",
