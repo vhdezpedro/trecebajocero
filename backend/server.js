@@ -37,11 +37,10 @@ app.get("/crear-tablas", async (req, res) => {
       )`,
     );
 
-    console.log("Las tablas se crearon correctamente");
-    process.exit();
+    res.send("Las tablas se crearon correctamente");
   } catch (error) {
     console.error(error);
-    process.exit(1);
+    res.status(500).send("Error creando tablas");
   }
 });
 
