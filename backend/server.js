@@ -11,7 +11,7 @@ const clientesRoute = require("./routes/clientes");
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: "trece-bajo-cero.netlify.app" }));
+app.use(cors({ origin: "https://trece-bajo-cero.netlify.app" }));
 
 app.get("/", (req, res) => {
   return res.send("Servidor conectado");
