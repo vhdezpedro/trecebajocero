@@ -1,9 +1,6 @@
 import { login, completarRegistro } from "./login.js";
 
-const API =
-  window.location.hostname === "localhost"
-    ? "http://localhost:3000"
-    : "http://192.168.1.65:3000";
+const API = "https://trecebajocero-backend.onrender.com";
 
 window.onload = async () => {
   const cliente_id = localStorage.getItem("cliente_id");
@@ -14,7 +11,7 @@ window.onload = async () => {
     cargarProceso(cliente_id);
   }
 
-  if (modo === "visita") {
+  if (cliente_id && modo === "visita") {
     await cargarVisita(cliente_id);
     window.history.replaceState({}, document.title, "/");
   }
